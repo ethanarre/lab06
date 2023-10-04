@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+<body>
+    {% for info in producto_info %}
+    <div class="container" >
+        <div class="row">
+            <div class="col-md-6">
+                <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modalSheet" >
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content rounded-4 shadow">
+                            <div class="modal-header border-bottom-0">
+                                <h1 class="modal-title fs-5">{{info.nombre}}</h1>
+                            </div>
+                            <div class="modal-body py-0" >
+                                <p>
+                                    Cantidad: {{info.cantidad}} {{info.unidad}} <br>
+                                    Precio: {{info.precio}} <br>
+                                    Stock: {{info.stock}} <br>
+                                    Descripción: {{info.descripcion}} <br>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" style="margin-top: 50px;">
+                <img src="{{info.imagen.url}}" alt="" width="250px" height="250px">
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</body>
+
+</html>
